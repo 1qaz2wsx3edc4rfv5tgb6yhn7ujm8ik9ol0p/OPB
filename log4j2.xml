@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>-
+<configuration status="INFO" name="DEVELOPMENT">-
+  <properties>
+    <property name="LOG_DIR">${env:ABPOPS_LOG}</property>
+  </properties>-
+  <appenders>-
+    <RollingFile name="rollinglog" filePattern="${LOG_DIR}/c1odp_${date:yyyyMMdd}_%i.log" fileName="${LOG_DIR}/c1odp_${date:yyyyMMdd}.log">-
+      <PatternLayout>
+        <pattern>%d %p %C{1.} [%t] %m%n</pattern>
+      </PatternLayout>-
+      <policies>
+        <OnStartupTriggeringPolicy/>
+      </policies>
+    </RollingFile>
+  </appenders>-
+  <loggers>-
+    <root level="INFO">
+      <appender-ref ref="rollinglog"/>
+    </root>
+  </loggers>
+</configuration>
